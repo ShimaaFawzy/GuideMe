@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Alexandria Guid</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_place_description">PlaceDescriptionActivity</string>
+    <string name="title_activity_photos">PhotosActivity</string>
+    <string name="title_activity_areas">AreasActivity</string>
+    <string name="title_activity_photos_grid_view">PhotosGridViewActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_image_view">ImageViewActivity</string>
+    <string name="title_activity_gallery_image_view">GalleryImageViewActivity</string>
+    <string name="title_activity_my_map">MyMapActivity</string>
+    <string name="title_activity_check">CheckActivity</string>
+    <string name="title_activity_places_category">PlacesCategoryActivity</string>
+    <string name="title_activity_test_panorama">TestPanorama</string>
+    <string name="title_activity_view_panorama">ViewPanoramaActivity</string>
+    <string name="title_activity_splash_screen">Welcome to Alexandria</string>
+    <string name="title_activity_list_photos">ListPhotosActivity</string>
+    <string name="title_activity_full_photo">FullPhotoActivity</string>
+    <string name="title_activity_image_fragment">ImageFragment</string>
+
+</resources>
