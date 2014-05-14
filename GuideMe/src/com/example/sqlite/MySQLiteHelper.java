@@ -1,4 +1,4 @@
-package com.example.sqlite;
+package com.hmkcode.android.sqlite;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,23 +17,23 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "EventDB";
-   
+	public static final String CREATE_Event_TABLE = "CREATE TABLE events ( " +
+            "id INTEGER PRIMARY KEY, " + 
+			"name TEXT, "+
+			"description TEXT, "+
+			"place_id INTEGER, "+
+			"ticketPrice TEXT, "+
+			"start_date TEXT, "+
+			"end_date TEXT )";
 	public MySQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);	
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// SQL statement to create book table
-		String CREATE_Event_TABLE = "CREATE TABLE events ( " +
-                "id INTEGER PRIMARY KEY, " + 
-				"name TEXT, "+
-				"description TEXT, "+
-				"place_id INTEGER, "+
-				"ticketPrice TEXT, "+
-				"start_date TEXT, "+
-				"end_date TEXT )";
-		
+		// SQL statement to create event table
+
+		System.out.println("Table created=======");
 		// create books table
 		db.execSQL(CREATE_Event_TABLE);
 	}
@@ -60,12 +60,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String KEY_EVENT_NAME = "name";
     private static final String KEY_EVENT_DESCRIPTION = "description";
     private static final String KEY_EVENT_PLACE_ID = "place_id";
+    private static final String KEY_EVENT_TICKET_PRICE = "ticketPrice";
     private static final String KEY_EVENT_START_DATE = "start_date";
     private static final String KEY_EVENT_END_DATE = "end_date";
-    
   
     
-    private static final String[] COLUMNS = {KEY_ID,KEY_EVENT_NAME,KEY_EVENT_START_DATE,KEY_EVENT_END_DATE,KEY_EVENT_DESCRIPTION,KEY_EVENT_PLACE_ID};
+    private static final String[] COLUMNS = {KEY_ID,KEY_EVENT_NAME,KEY_EVENT_DESCRIPTION,KEY_EVENT_PLACE_ID,KEY_EVENT_TICKET_PRICE,KEY_EVENT_START_DATE,KEY_EVENT_END_DATE};
     
 	public void addEvent(Event event){
 		System.out.println("=======addEvent"+ event.toString());
@@ -76,10 +76,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_ID, event.getId());  
         values.put(KEY_EVENT_NAME, event.getEventName());  
+        values.put(KEY_EVENT_DESCRIPTION, event.getEventDescription());
+        values.put(KEY_EVENT_PLACE_ID, event.getEventPlaceId());
+        values.put(KEY_EVENT_TICKET_PRICE, event.getEventTicketPrice());
         values.put(KEY_EVENT_START_DATE, event.getEventStartDate());  
         values.put(KEY_EVENT_END_DATE, event.getEventEndtDate()); 
-        values.put(KEY_EVENT_DESCRIPTION, event.getEventDescription());  
-        values.put(KEY_EVENT_PLACE_ID, event.getEventPlaceId());
+          
+       
         // 3. insert
         db.insert(TABLE_EVENTS, // table
         		null, //nullColumnHack
@@ -113,9 +116,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Event event = new Event();
         event.setId(Integer.parseInt(cursor.getString(0)));
         event.setEventName(cursor.getString(1));
-        event.setEventName(cursor.getString(2));
-        
-
+        event.setEventDescription(cursor.getString(2));
+        event.setEventPlaceId(Integer.parseInt(cursor.getString(3)));
+        event.setEventTicketPrice(cursor.getString(4));
+        event.setEventStartDate(cursor.getString(5));
+        event.setEventEndtDate(cursor.getString(4));
+       
         System.out.println("=============getEvent("+id+")"+ event.toString());
 
         // 5. return event
@@ -137,10 +143,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Event event = null;
         if (cursor.moveToFirst()) {
             do {
-            	event = new Event();
+                event = new Event();
                 event.setId(Integer.parseInt(cursor.getString(0)));
                 event.setEventName(cursor.getString(1));
-                event.setEventName(cursor.getString(2));
+                event.setEventDescription(cursor.getString(2));
+                event.setEventPlaceId(Integer.parseInt(cursor.getString(3)));
+                event.setEventTicketPrice(cursor.getString(4));
+                event.setEventStartDate(cursor.getString(5));
+                event.setEventEndtDate(cursor.getString(4));
 
                 // Add event to events
                 events.add(event);
@@ -161,9 +171,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
  
 		// 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
-        values.put("title", event.getEventName()); // get title 
-        values.put("author", event.getEventName()); // get author
- 
+        values.put("id", event.getId()); // 
+        values.put("name", event.getEventName()); // 
+        values.put("description", event.getEventDescription()); // 
+        values.put("placeId", event.getEventPlaceId()); // 
+        values.put("ticketPrice", event.getEventTicketPrice()); // 
+        values.put("startDate", event.getEventStartDate()); // 
+        values.put("endDate", event.getEventEndtDate()); // 
+        
         // 3. updating row
         int i = db.update(TABLE_EVENTS, //table
         		values, // column/value
@@ -191,7 +206,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. close
         db.close();
         
-        System.out.println("deleteEvent"+ event.toString());
+        System.out.println("=====deleteEvent"+ event.toString());
 
     }
 }
