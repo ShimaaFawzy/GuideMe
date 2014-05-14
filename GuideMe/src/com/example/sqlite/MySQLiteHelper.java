@@ -17,7 +17,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	// Database Version
     private static int DATABASE_VERSION = 1;
     // Database Name
-    private static final String DATABASE_NAME = "EventDB";
+    private static final String DATABASE_NAME = "AlexandriaDB";
 	public static final String CREATE_Event_TABLE = "CREATE TABLE events ( " +
             "id INTEGER PRIMARY KEY, " + 
 			"name TEXT, "+
@@ -26,6 +26,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 			"ticketPrice TEXT, "+
 			"start_date TEXT, "+
 			"end_date TEXT )";
+
+	
 	public MySQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);	
 	}
@@ -37,6 +39,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 		System.out.println("Table created=======");
 		// create books table
 		db.execSQL(CREATE_Event_TABLE);
+		db.execSQL(CREATE_FAVOURITE_TABLE);
 	}
 
 	@Override
@@ -65,7 +68,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String KEY_EVENT_START_DATE = "start_date";
     private static final String KEY_EVENT_END_DATE = "end_date";
   
-    
+
     private static final String[] COLUMNS = {KEY_ID,KEY_EVENT_NAME,KEY_EVENT_DESCRIPTION,KEY_EVENT_PLACE_ID,KEY_EVENT_TICKET_PRICE,KEY_EVENT_START_DATE,KEY_EVENT_END_DATE};
     
 	public void addEvent(Event event){
