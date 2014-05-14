@@ -9,7 +9,24 @@ public class Place {
 	private int id;
 	private String placeName ,placeDescription , placeRate ,placeLongitude ,placeLatitude ,placeTicketPrice , placeFromTo ,placeCategory;
 	private Marker marker;
+	private double placeSumRate ,placeVoteNo;
 	
+	public double getPlaceSumRate() {
+		return placeSumRate;
+	}
+
+	public void setPlaceSumRate(double placeSumRate) {
+		this.placeSumRate = placeSumRate;
+	}
+
+	public double getPlaceVoteNo() {
+		return placeVoteNo;
+	}
+
+	public void setPlaceVoteNo(double placeVoteNo) {
+		this.placeVoteNo = placeVoteNo;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -86,7 +103,8 @@ public class Place {
 				+ ", placeLatitude=" + placeLatitude + ", placeTicketPrice="
 				+ placeTicketPrice + ", placeFromTo=" + placeFromTo
 				+ ", placeCategory=" + placeCategory + ", marker=" + marker
-				+ "]";
+				+ ", placeSumRate=" + placeSumRate + ", placeVoteNo="
+				+ placeVoteNo + "]";
 	}
 	
 	
