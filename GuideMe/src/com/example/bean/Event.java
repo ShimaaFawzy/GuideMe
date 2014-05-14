@@ -10,10 +10,15 @@ public class Event {
 	
 	public Event(){}
 	
-	public Event(String title, String author) {
+	public Event(int id ,int placeId,String name, String desc ,String start ,String end ,String ticket) {
 		super();
-		eventName = title;
-		eventPlace = author;
+		this.id =id;
+		eventPlaceId =placeId;
+		eventName = name;
+		eventDescription = desc;
+		eventStartDate = start;
+		eventEndtDate = end;
+		eventTicketPrice = ticket;
 	}
 	
 	
