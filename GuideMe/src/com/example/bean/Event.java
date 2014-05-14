@@ -5,7 +5,7 @@ package com.example.bean;
 public class Event {
 
 	private int id ,eventPlaceId;
-	private String eventName ,eventPlace , eventDescription , eventStartDate , eventEndtDate ;
+	private String eventName ,eventPlace , eventDescription , eventStartDate , eventEndtDate ,eventTicketPrice ;
 
 	
 	public Event(){}
@@ -16,6 +16,15 @@ public class Event {
 		eventPlace = author;
 	}
 	
+	
+	public String getEventTicketPrice() {
+		return eventTicketPrice;
+	}
+
+	public void setEventTicketPrice(String eventTicketPrice) {
+		this.eventTicketPrice = eventTicketPrice;
+	}
+
 	public int getEventPlaceId() {
 		return eventPlaceId;
 	}

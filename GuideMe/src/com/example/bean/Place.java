@@ -7,9 +7,9 @@ import android.view.ViewGroup.MarginLayoutParams;
 public class Place {
 	
 	private int id;
-	private String placeName ,placeDescription , placeRate ,placeLongitude ,placeLatitude ,placeTicketPrice , placeFromTo ,placeCategory;
+	private String placeName ,placeDescription  ,placeLongitude ,placeLatitude , placeFromTo ,placeCategory ,placeTelephone;
 	private Marker marker;
-	private double placeSumRate ,placeVoteNo;
+	private double placeSumRate ,placeVoteNo , placeRate ,usePate;
 	
 	public double getPlaceSumRate() {
 		return placeSumRate;
@@ -62,12 +62,31 @@ public class Place {
 	public void setPlaceDescription(String placeDescription) {
 		this.placeDescription = placeDescription;
 	}
-	public String getPlaceRate() {
+	
+	public String getPlaceTelephone() {
+		return placeTelephone;
+	}
+
+	public void setPlaceTelephone(String placeTelephone) {
+		this.placeTelephone = placeTelephone;
+	}
+
+	public double getPlaceRate() {
 		return placeRate;
 	}
-	public void setPlaceRate(String placeRate) {
+
+	public void setPlaceRate(double placeRate) {
 		this.placeRate = placeRate;
 	}
+
+	public double getUsePate() {
+		return usePate;
+	}
+
+	public void setUsePate(double usePate) {
+		this.usePate = usePate;
+	}
+
 	public String getPlaceLongitude() {
 		return placeLongitude;
 	}
@@ -80,12 +99,7 @@ public class Place {
 	public void setPlaceLatitude(String placeLatitude) {
 		this.placeLatitude = placeLatitude;
 	}
-	public String getPlaceTicketPrice() {
-		return placeTicketPrice;
-	}
-	public void setPlaceTicketPrice(String placeTicketPrice) {
-		this.placeTicketPrice = placeTicketPrice;
-	}
+	
 	
 	public Marker getMarker() {
 		return marker;
@@ -98,13 +112,13 @@ public class Place {
 	@Override
 	public String toString() {
 		return "Place [id=" + id + ", placeName=" + placeName
-				+ ", placeDescription=" + placeDescription + ", placeRate="
-				+ placeRate + ", placeLongitude=" + placeLongitude
-				+ ", placeLatitude=" + placeLatitude + ", placeTicketPrice="
-				+ placeTicketPrice + ", placeFromTo=" + placeFromTo
-				+ ", placeCategory=" + placeCategory + ", marker=" + marker
-				+ ", placeSumRate=" + placeSumRate + ", placeVoteNo="
-				+ placeVoteNo + "]";
+				+ ", placeDescription=" + placeDescription
+				+ ", placeLongitude=" + placeLongitude + ", placeLatitude="
+				+ placeLatitude + ", placeFromTo=" + placeFromTo
+				+ ", placeCategory=" + placeCategory + ", placeTelephone="
+				+ placeTelephone + ", marker=" + marker + ", placeSumRate="
+				+ placeSumRate + ", placeVoteNo=" + placeVoteNo
+				+ ", placeRate=" + placeRate + ", usePate=" + usePate + "]";
 	}
 	
 	
