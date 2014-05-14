@@ -82,6 +82,8 @@ public class PlaceDescriptionActivity extends Activity {
         listView.addHeaderView(header, null, false);
         listView.addHeaderView(rateHeader, null, false);
         ratingBar=(RatingBar)findViewById(R.id.ratingBar1);
+        ratingBar.setEnabled(false);
+        ratingBar.setRating((float) 2.5);
 		stars = (LayerDrawable) ratingBar.getProgressDrawable();
 		stars.getDrawable(2).setColorFilter(Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_ATOP);
 		ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
