@@ -1,4 +1,5 @@
-package com.hmkcode.android.sqlite;
+package com.example.sqlite;
+
 
 import java.util.LinkedList;
 import java.util.List;
