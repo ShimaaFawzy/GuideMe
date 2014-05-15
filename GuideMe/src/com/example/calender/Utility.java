@@ -38,8 +38,6 @@ public class Utility {
 	public static ArrayList<String> endDates = new ArrayList<String>();
 	public static ArrayList<String> descriptions = new ArrayList<String>();
 
-	//public DownloadTask dt;
-
 	String contentAsString;
 	URL url;
 
@@ -49,8 +47,6 @@ public class Utility {
 		startDates.clear();
 		endDates.clear();
 		descriptions.clear();
-		//dt = new DownloadTask();
-		//dt.execute("http://localhost:8084/EventsCalendar/Events/events");
 		
 		for (int i = 0; i < 1; i++) {
 			//1
