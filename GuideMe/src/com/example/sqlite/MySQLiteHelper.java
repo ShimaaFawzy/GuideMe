@@ -39,7 +39,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 		System.out.println("Table created=======");
 		// create books table
 		db.execSQL(CREATE_Event_TABLE);
-		db.execSQL(CREATE_FAVOURITE_TABLE);
 	}
 
 	@Override
